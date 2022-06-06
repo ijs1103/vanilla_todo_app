@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
+	<!-- google icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script type="defer" src="./js/main.js"></script>
+	<script type="module">
+		import Sortable from 'https://cdn.skypack.dev/sortablejs';
+	</script>
+	<link rel="stylesheet" href="./main.css">
+	<title>TODO-XP</title>
+</head>
+
+<body>
+	<main>
+		<h1 class="title">환영합니다!</h1>
+		<h2 class="today"></h2>
+		<div class="container">
+			<div class="btn--add">
+				<span class="material-icons">
+					add
+				</span>
+			</div>
+			<div class="boards">
+			</div>
+		</div>
+		<div class="modal">
+			<div class="modal__curtain"></div>
+			<form class="modal__form">
+				<input type="text" placeholder="할 일을 입력해주세요"/>
+			</form>
+		</div>
+		<div class="loader">
+			<div class="window">
+				<div class="logo">
+					<p class="top">Microsoft</p>
+					<p class="mid">Windows<span>XP</span></p>
+					<p class="bottom">Professional</p>
+				</div>
+				<div class="container">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+			</div>
+			<div class="loader__curtain"></div>
+		</div>
+	</main>
+	<nav>
+		<div class="nav__inner">
+			<div class="nav__btn"></div>
+			<div class="nav__bar"></div>
+			<div class="nav__time">
+			</div>
+		</div>
+	</nav>
+</body>
+
+</html>

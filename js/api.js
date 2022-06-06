@@ -4,7 +4,7 @@ const BASE_URL = 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todo
 const headers = {
   'Content-Type': 'application/json',
 	apikey: process.env.API_KEY,
-	username: 'kDT2_LeeJuSang'
+	username: 'kDT2_LeeJooSang'
 }
 
 const reorderTodos = async (todoIds) => {

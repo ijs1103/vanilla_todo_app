@@ -3,7 +3,7 @@ import axios from 'axios'
 const BASE_URL = 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos'
 const headers = {
   'Content-Type': 'application/json',
-	apikey: 'FcKdtJs202204',
+	apikey: process.env.API_KEY,
 	username: 'kDT2_LeeJuSang'
 }
 

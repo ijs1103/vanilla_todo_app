@@ -133,6 +133,26 @@ onAdd: async event => {
 			}
 ```
 
+> ### 반복문 안에서 비동기 처리
+
+일반 `for문, forEach` 에서는 `promise`의 호출이 보장이 되지 않습니다. 
+
+`for in, for of` 문에서는 기대했던대로 `promise`들의 순차적인 호출이 보장 됩니다.
+
+`promise.all`에서는 `promise`들을 병렬적으로 처리하지만, 기대했던 순서로 실행이 보장이 되지 않고 하나의 비동기 함수라도 `reject`가 되면 `Promise.all` 전체가 `reject` 됩니다.
+
+따라서, `for of` 문으로 반복되는 `promise`들을 호출 하였습니다. 
+
+```js
+for (const cardDone of $doneCards) {
+	await deleteCard(cardDone.dataset.id);
+}
+```
+
+## 링크
+
+https://sparkly-dusk-f6877f.netlify.app/
+
 
 
 

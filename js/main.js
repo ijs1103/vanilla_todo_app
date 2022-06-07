@@ -42,9 +42,10 @@ import Sortable from 'sortablejs'
 		$cards.insertAdjacentHTML('beforeend', newCards);
 	};
 	const renderCards = (isInit = false) => {
+		// isInit이 true일때만 로더 표시 
 		isInit && startLoading();
 		const todos = readTodos();
-		return todos.then(res => {
+		todos.then(res => {
 			const {
 				data
 			} = res;
@@ -95,12 +96,13 @@ import Sortable from 'sortablejs'
 	};
 	const createCard = async title => {
 		await createTodos(title);
-		await renderCards();
+		renderCards();
 		await reorderCards();
 	};
-	const updateCard = async (id, title, done, order) => {
-		updateTodos(id, title, done, order);
-		await renderCards();
+	const updateCard = (id, title, done, order) => {
+		updateTodos(id, title, done, order).then(
+			() => renderCards()
+		);
 	};
 	const deleteCard = id => {
 		return deleteTodos(id).then(isDeleted => {
@@ -123,8 +125,9 @@ import Sortable from 'sortablejs'
 		if (e.target.className !== 'btn--delete') return;
 		const $card = e.target.closest('.card');
 		const id = $card.dataset.id;
-		await deleteCard(id);
-		await renderCards();
+		await deleteCard(id).then(
+			() => renderCards()
+		);
 	}
 
 	const onSubmit = e => {
@@ -156,8 +159,9 @@ import Sortable from 'sortablejs'
 					item
 				} = event;
 				const title = item.querySelector('label').textContent;
-				updateCard(id, title, type === DONE, order);
-				await renderCards();
+				updateCard(id, title, type === DONE, order).then(
+					() => renderCards()
+				);
 			}
 		};
 	}
@@ -168,7 +172,7 @@ import Sortable from 'sortablejs'
 		for (const cardDone of $doneCards) {
 			await deleteCard(cardDone.dataset.id);
 		}
-		await renderCards();
+		renderCards();
 	};
 	const toggleModal = () => {
 		$modal.classList.toggle('active');

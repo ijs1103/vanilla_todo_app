@@ -148,7 +148,7 @@ import Sortable from 'sortablejs'
 				put: type===TODO ? DONE : TODO
 			},
 			animation: 200,
-			onAdd: async event => {
+			onAdd: event => {
 				const {
 					item: {
 						dataset: {
@@ -159,9 +159,8 @@ import Sortable from 'sortablejs'
 					item
 				} = event;
 				const title = item.querySelector('label').textContent;
-				updateCard(id, title, type === DONE, order).then(
-					() => renderCards()
-				);
+				updateCard(id, title, type === DONE, order);
+				renderCards();
 			}
 		};
 	}
